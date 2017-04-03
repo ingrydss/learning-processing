@@ -1,0 +1,54 @@
+//exemplo de animação sem o uso da função background() para apagar o rastro e dar ilusão de movimento.
+
+
+int px=0; // apresenta e define a variável
+
+void setup() {
+  background(50);
+  size(200,200,P2D);
+  smooth(100);
+  noStroke();
+  //frameRate(500); // se adicionado, acelera (ou diminui, a velocidade da animação
+  px=0;
+}
+
+void draw() {
+  px++;
+  fill(0,5); //preenchimento preto e transparencia 5
+  rect(0,0,width,height); // desenha o retangulo com as mesmas dimensões do canvas
+  //não foi usado a função backgroud() pois era desejado o efeito de rastro
+  //background(0); //se add fica animado normal.
+  fill(255,0,0);
+  rect(px,100,20,20);
+  fill(0,255,0);
+  rect(100,px,20,20);
+}
+
+
+
+______________________
+//exemplo de mudança de velocidade dos objetos de forma independete, atraves de variaveis
+
+
+int px;
+int py;
+
+void setup() {
+  size(200,200,P2D);
+  background(50);
+  smooth();
+  noStroke();
+  px=0;
+  py=0;
+}
+
+void draw() {
+  px+=2; //equivale a equção px=px+2
+  py+=4; //equivale a equação py=py+4, com as variaveis adicionando valores diferentes, tem se velocidades diferentes. 
+  fill(0,5); // retangulo do tamanho da tela que tem 5 de tranparencia
+  rect(0,0,width,height);
+  fill(255,0,0); // primeiro retanguo animado, o vermelho
+  rect(px,100,20,20);
+  fill(0,255,0); //segundo retangulo animado, o verde
+  rect(100,py,20,20);
+}
